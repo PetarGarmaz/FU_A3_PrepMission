@@ -1,0 +1,78 @@
+//ACE Spectator Respawn
+
+respawnOnStart = -1;
+respawn = "Base";
+respawnDelay = 30;
+respawnTemplates[] = {"Base","Counter","ace_spectator"};
+enableDebugConsole = 1;
+
+author = "Bizo";
+onLoadName = "FU Modlist 15 Prep-Mission";
+loadScreen = "Images\billboard.jpg";
+
+class CfgFunctions {
+	class Bizo {
+		class Terminals {
+			class vehicleTerminal{};
+			class medicalTent{};
+			class masterTerminal{};
+		};
+		
+		class Missions {
+			class missionChoice{};
+			class missionAttack{};
+			class missionAssassination{};
+			class missionCAP{};
+		};
+		
+		class Tasks {
+			class taskHQ{};
+			class taskAA{};
+			class taskDepot{};
+			class taskMortar{};
+			class taskFortified{};
+			class taskRT{};
+			class taskKillPlanes{};
+			class taskDestroyRadars{};
+			class taskDefend{};
+		};
+		
+		class Arsenal {
+			class arsenal{};
+			class getLoadout{};
+		};
+		
+		class Misc {
+			class flagSpawn{};
+			class haloDrop{};
+			class spawnIntro{};
+			class artillery{};
+			class recruitment{};
+			class supplies{};
+			class spawnSupplies{};
+		};
+		
+		class Spawners {
+			class spawnDefenders{};
+			class spawnAttackers{};
+			class spawnInBuilding{};
+		};
+	};
+	
+	class opec {
+		class Opec {
+			class garageNew{};
+		};
+	};
+};
+
+class CfgSounds
+{
+	sounds[] = {};
+	
+	class DOOT {
+		name = "DOOT";
+		sound[] = {"Sfx\doot.ogg", 40, 1, 200};
+		titles[] = {};
+	};
+};
