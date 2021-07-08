@@ -2,12 +2,12 @@ _location = _this param[0];
 _side = _this param [1];
 _customChances = _this param [2, 4];
 _doMove = _this param [3, true];
-_onlyOneBuilding = _this param [4, false];
+_customRadius = _this param [4, 100];
 
-_listOfBuildingsInVicinity = _location nearObjects ["House", 50];
+_listOfBuildingsInVicinity = _location nearObjects ["House", _customRadius];
 _numOfBuildingsInVicinity = count _listOfBuildingsInVicinity;
 
-_numOfOutsidePositions = _location nearObjects ["Land_Decal_RoadCrack_Grass_05_F", 50];
+_numOfOutsidePositions = _location nearObjects ["Land_Decal_RoadCrack_Grass_05_F", _customRadius];
 
 for "_i" from 0 to _numOfBuildingsInVicinity do {
 	_spotsInBuilding = [];

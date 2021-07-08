@@ -45,25 +45,6 @@ if(_side == west) then {
 		_vehicle = createVehicle [(_vehComp select 4), _groupPos, [], 0, "FLY"];
 		_group = createVehicleCrew _vehicle;
 	};
-
-	_move1 = _group addWaypoint [_groupPos, 0];
-	_move1 setWaypointType "MOVE";
-
-	_patrolRoute = [_groupPos, 10, 500, 0, 0, 0, 0, [], []] call BIS_fnc_findSafePos;
-	_move2 = _group addWaypoint [_patrolRoute, 0];
-	_move2 setWaypointType "MOVE";
-
-	_patrolRoute = [_groupPos, 10, 500, 0, 0, 0, 0, [], []] call BIS_fnc_findSafePos;
-	_move3 = _group addWaypoint [_patrolRoute, 0];
-	_move3 setWaypointType "MOVE";
-
-	_move4 = _group addWaypoint [_groupPos, 0];
-	_move4 setWaypointType "CYCLE";
-
-	_group setBehaviour "SAFE";
-	_group setCombatMode "RED";
-	_group setSpeedMode "FULL";
-	_group setFormation "DIAMOND";
 };
 
 
@@ -103,25 +84,6 @@ if(_side == east) then {
 		_vehicle = createVehicle [(_vehComp select 4), _groupPos, [], 0, "FLY"];
 		_group = createVehicleCrew _vehicle;
 	};
-
-	_move1 = _group addWaypoint [_groupPos, 0];
-	_move1 setWaypointType "MOVE";
-
-	_patrolRoute = [_groupPos, 10, 500, 0, 0, 0, 0, [], []] call BIS_fnc_findSafePos;
-	_move2 = _group addWaypoint [_patrolRoute, 0];
-	_move2 setWaypointType "MOVE";
-
-	_patrolRoute = [_groupPos, 10, 500, 0, 0, 0, 0, [], []] call BIS_fnc_findSafePos;
-	_move3 = _group addWaypoint [_patrolRoute, 0];
-	_move3 setWaypointType "MOVE";
-
-	_move4 = _group addWaypoint [_groupPos, 0];
-	_move4 setWaypointType "CYCLE";
-
-	_group setBehaviour "SAFE";
-	_group setCombatMode "RED";
-	_group setSpeedMode "FULL";
-	_group setFormation "DIAMOND";
 };
 
 if(_side == resistance) then {
@@ -160,26 +122,29 @@ if(_side == resistance) then {
 		_vehicle = createVehicle [(_vehComp select 4), _groupPos, [], 0, "FLY"];
 		_group = createVehicleCrew _vehicle;
 	};
-
-	_move1 = _group addWaypoint [_groupPos, 0];
-	_move1 setWaypointType "MOVE";
-
-	_patrolRoute = [_groupPos, 10, 500, 0, 0, 0, 0, [], []] call BIS_fnc_findSafePos;
-	_move2 = _group addWaypoint [_patrolRoute, 0];
-	_move2 setWaypointType "MOVE";
-
-	_patrolRoute = [_groupPos, 10, 500, 0, 0, 0, 0, [], []] call BIS_fnc_findSafePos;
-	_move3 = _group addWaypoint [_patrolRoute, 0];
-	_move3 setWaypointType "MOVE";
-
-	_move4 = _group addWaypoint [_groupPos, 0];
-	_move4 setWaypointType "CYCLE";
-
-	_group setBehaviour "SAFE";
-	_group setCombatMode "RED";
-	_group setSpeedMode "FULL";
-	_group setFormation "DIAMOND";
 };
+
+
+//Group Logic
+_move1 = _group addWaypoint [_groupPos, 0];
+_move1 setWaypointType "MOVE";
+
+_patrolRoute = [_groupPos, 10, 500, 0, 0, 0, 0, [], []] call BIS_fnc_findSafePos;
+_move2 = _group addWaypoint [_patrolRoute, 0];
+_move2 setWaypointType "MOVE";
+
+_patrolRoute = [_groupPos, 10, 500, 0, 0, 0, 0, [], []] call BIS_fnc_findSafePos;
+_move3 = _group addWaypoint [_patrolRoute, 0];
+_move3 setWaypointType "MOVE";
+
+_move4 = _group addWaypoint [_groupPos, 0];
+_move4 setWaypointType "CYCLE";
+
+_group setBehaviour "SAFE";
+_group setCombatMode "RED";
+_group setSpeedMode "LIMITED";
+_group setFormation "DIAMOND";
+
 
 //Add flashlights
 {

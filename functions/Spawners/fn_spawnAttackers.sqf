@@ -60,13 +60,7 @@ if(_side == west) then {
 		_getOut setWaypointType "GETOUT";
 	};
 
-	_move1 = _group addWaypoint [_objective, 0];
-	_move1 setWaypointType "MOVE";
-
-	_group setBehaviour "AWARE";
-	_group setCombatMode "RED";
-	_group setSpeedMode "FULL";
-	_group setFormation "DIAMOND";
+	
 };
 
 
@@ -119,14 +113,6 @@ if(_side == east) then {
 		_getOut = _group addWaypoint [_objective, 300];
 		_getOut setWaypointType "GETOUT";
 	};
-
-	_move1 = _group addWaypoint [_objective, 0];
-	_move1 setWaypointType "MOVE";
-
-	_group setBehaviour "AWARE";
-	_group setCombatMode "RED";
-	_group setSpeedMode "FULL";
-	_group setFormation "DIAMOND";
 };
 
 
@@ -179,15 +165,16 @@ if(_side == resistance) then {
 		_getOut = _group addWaypoint [_objective, 300];
 		_getOut setWaypointType "GETOUT";
 	};
-
-	_move1 = _group addWaypoint [_objective, 0];
-	_move1 setWaypointType "MOVE";
-
-	_group setBehaviour "AWARE";
-	_group setCombatMode "RED";
-	_group setSpeedMode "FULL";
-	_group setFormation "DIAMOND";
 };
+
+//Group logic
+_move1 = _group addWaypoint [_objective, 0];
+_move1 setWaypointType "MOVE";
+
+_group setBehaviour "AWARE";
+_group setCombatMode "RED";
+_group setSpeedMode "FULL";
+_group setFormation "DIAMOND";
 
 //Add flashlights
 {

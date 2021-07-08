@@ -23,7 +23,7 @@ while {_missionLocationName in _blacklistedLocations} do {
 	];
 };
 
-[_missionRequestee, "Give me the CAP mission."] remoteExec ["sideChat", 0];
+[_missionRequestee, "Requesting CAP mission."] remoteExec ["sideChat", 0];
 
 sleep 2;
 
@@ -81,9 +81,9 @@ sleep 1;
 		sleep _randomSleep;
 		
 		if((missionNamespace getVariable "planesKilled") < 15) then {
-			[_missionPos, _enemySide, 5, _missionPos] spawn Bizo_fnc_spawnAttackers;
-			[_missionPos, _enemySide, 5, _missionPos] spawn Bizo_fnc_spawnAttackers;
-			[_missionPos, _enemySide, 5, _missionPos] spawn Bizo_fnc_spawnAttackers;
+			[_missionPos, _enemySide, 6, _missionPos] spawn Bizo_fnc_spawnAttackers;
+			[_missionPos, _enemySide, 6, _missionPos] spawn Bizo_fnc_spawnAttackers;
+			[_missionPos, _enemySide, 6, _missionPos] spawn Bizo_fnc_spawnAttackers;
 		};
 		
 	};

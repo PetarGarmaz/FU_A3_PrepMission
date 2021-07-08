@@ -1,4 +1,6 @@
 //ACE Spectator Respawn
+#include "Dialog\defines.hpp"
+#include "Dialog\control.hpp"
 
 respawnOnStart = -1;
 respawn = "Base";
@@ -9,6 +11,12 @@ enableDebugConsole = 1;
 author = "Bizo";
 onLoadName = "FU Modlist 15 Prep-Mission";
 loadScreen = "Images\billboard.jpg";
+
+class Header {
+	gameType =  Zeus;	// Game type
+	minPlayers =  1;	// minimum number of players the mission supports
+	maxPlayers = 25;	// maximum number of players the mission supports
+};
 
 class CfgFunctions {
 	class Bizo {
@@ -21,7 +29,7 @@ class CfgFunctions {
 		class Missions {
 			class missionChoice{};
 			class missionAttack{};
-			class missionAssassination{};
+			class missionSide{};
 			class missionCAP{};
 		};
 		
@@ -32,6 +40,7 @@ class CfgFunctions {
 			class taskMortar{};
 			class taskFortified{};
 			class taskRT{};
+			class taskOfficer{};
 			class taskKillPlanes{};
 			class taskDestroyRadars{};
 			class taskDefend{};
@@ -40,6 +49,7 @@ class CfgFunctions {
 		class Arsenal {
 			class arsenal{};
 			class getLoadout{};
+			class changeToCivilian{};
 		};
 		
 		class Misc {
@@ -50,6 +60,9 @@ class CfgFunctions {
 			class recruitment{};
 			class supplies{};
 			class spawnSupplies{};
+			class tablet{};
+			class numberToText{};
+			class supplyDrop{};
 		};
 		
 		class Spawners {

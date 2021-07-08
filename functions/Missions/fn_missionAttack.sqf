@@ -44,11 +44,11 @@ if(_userMissionLocation == "") then {
 	}foreach _allLocations;
 };
 
-[_missionRequestee, "Give me the attack mission."] remoteExec ["sideChat", 0];
+[_missionRequestee, "Requesting attack mission."] remoteExec ["sideChat", 0];
 
 sleep 2;
 
-[_missionGiver, format ["Alright, you're going to %1! Good luck soldier!", _missionLocationName]] remoteExec ["sideChat", 0];
+[_missionGiver, format ["Copy that, you're going to %1! Good luck!", _missionLocationName]] remoteExec ["sideChat", 0];
 
 sleep 2;
 
@@ -126,7 +126,7 @@ for "_i" from 1 to _numberOfFM do {
 
 while {true} do {
 	if(triggerActivated ((missionNamespace getVariable "missionAttackTasks") select 0) && triggerActivated ((missionNamespace getVariable "missionAttackTasks") select 1) && triggerActivated ((missionNamespace getVariable "missionAttackTasks") select 2) && triggerActivated ((missionNamespace getVariable "missionAttackTasks") select 3) && triggerActivated ((missionNamespace getVariable "missionAttackTasks") select 4) && triggerActivated ((missionNamespace getVariable "missionAttackTasks") select 5)) exitWith {
-		_doDefend = [1, 2] call BIS_fnc_randomInt;
+		_doDefend = [1, 2, 3] call BIS_fnc_randomInt;
 		
 		['attackTask', 'SUCCEEDED', true] call BIS_fnc_taskSetState;
 		
@@ -143,16 +143,22 @@ while {true} do {
 			['EventTrack02_F_Orange'] remoteExec ['playMusic', 0];
 		
 			[_missionPos] spawn {
+				sleep 60;
+
 				_allEntities = (_this select 0) nearEntities [['Man', 'Car', 'Tank', 'Air'], 2000];
-				
-				sleep 300;
 				
 				{
 					deleteVehicle _x;
 				}foreach (missionNamespace getVariable 'allAttackSpawnedObjects');
 				
 				{
-					deleteVehicle _x;
+					if(isDamageAllowed _x && !(_x getVariable "isPersonalVehicle")) then {
+						_vehicleCrew = crew _x;
+						_crewMember = objNull;
+						
+						if(count _vehicleCrew > 0) then {_crewMember = _vehicleCrew select 0;};
+						if(!isPlayer _crewMember) then {deleteVehicle _x;};
+					};
 				}foreach _allEntities;
 			};
 		};

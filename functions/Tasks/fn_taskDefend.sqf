@@ -119,7 +119,7 @@ while {("defendTask" call BIS_fnc_taskState) != "FAILED"} do {
 			deleteMarker 'defendMarkerText';
 			
 			[] spawn {
-				sleep 300;
+				sleep 60;
 				
 				{
 					deleteVehicle _x;

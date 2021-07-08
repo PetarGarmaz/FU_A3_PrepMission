@@ -1,3 +1,5 @@
+//Made by Opec, edited by Bizo to fit the needs of my community.
+
 disableSerialization;
 
 uiNamespace setVariable [ "current_garage", (_this select 0)];
@@ -54,12 +56,7 @@ with uiNamespace do {
 		
 		_crew = crew _x;
 		{
-			_x spawn { 
-				_this action [ "Eject", vehicle _this ];
-				sleep ( random 5 );
-				deleteVehicle _this;
-			};
-			
+			deleteVehicle _x;			
 		} forEach _crew;
 		
 		deleteVehicle _x;
@@ -92,9 +89,10 @@ with uiNamespace do {
 			_count = _count + 1;
 		} forEach _textures;
 		
-		_puller setVariable ["personalVehicle", _new_veh, true];
+		player setVariable ["personalVehicle", _new_veh, true];
+		_new_veh setVariable ["isPersonalVehicle", true, true];
 		
-		[_puller, _new_veh] spawn {
+		[player, _new_veh] spawn {
 			_puller = _this select 0;
 			_new_veh = _this select 1;
 			
@@ -104,5 +102,26 @@ with uiNamespace do {
 				};
 			};
 		};
+
+		_new_veh addEventHandler ["Fired", { 
+			params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
+
+			_bulletsSafezone = [_projectile] spawn {
+				_projectile = _this select 0;
+				_safeZones = [];
+
+				{if("SafeZone" in _x) then {_safeZones pushBack _x}}forEach allMapMarkers;
+
+				while {alive _projectile} do {
+					_nearestSafeZone = [_safeZones, getPos _projectile] call BIS_fnc_nearestPosition;
+					_baseName = markerText _nearestSafeZone;
+					_distance = (getMarkerPos _nearestSafeZone) distance (getPos _projectile);
+					
+					if(_distance <= 300) then {
+						deleteVehicle _projectile;
+					};
+				};
+			};
+		}];
 	} forEach _veh_list;
 };

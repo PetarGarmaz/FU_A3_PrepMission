@@ -5,7 +5,6 @@ missionNamespace setVariable ["missionMenu", true, true];
 missionNamespace setVariable ["missionAttack", false, true];
 missionNamespace setVariable ["missionCAP", false, true];
 missionNamespace setVariable ["missionHeli", false, true];
-missionNamespace setVariable ["missionAssassination", false, true];
 
 missionNamespace setVariable ["missionRequestee", objNull, true];
 
@@ -33,13 +32,9 @@ _missionGiver addAction["<img image='\A3\ui_f\data\igui\cfg\simpleTasks\types\pl
 	[(_this select 0), (_this select 1)] remoteExec ["Bizo_fnc_missionCAP", 2];
 }, nil, 1.5, true, true, "", "not(missionNamespace getVariable 'missionMenu') && not(missionNamespace getVariable 'missionCAP') && (_this == (missionNamespace getVariable 'missionRequestee'))", 3];
 
-//_missionGiver addAction["<img image='\A3\ui_f\data\igui\cfg\simpleTasks\types\heli_ca.paa'/> [SIDE MISSION] Helicopter Mission (CAS/Transport) - Not available yet", {
-//	hint "";
-//}, nil, 1.5, true, true, "", "not(missionNamespace getVariable 'missionMenu') && not(missionNamespace getVariable 'missionHeli') && (_this == (missionNamespace getVariable 'missionRequestee'))", 3];
-
-_missionGiver addAction["<img image='\A3\ui_f\data\igui\cfg\simpleTasks\types\kill_ca.paa'/> [SIDE MISSION] Assassinate Enemy Officer", {
-	[(_this select 0), (_this select 1)] remoteExec ["Bizo_fnc_missionAssassination", 2];
-}, nil, 1.5, true, true, "", "not(missionNamespace getVariable 'missionMenu') && not(missionNamespace getVariable 'missionAssassination') && (_this == (missionNamespace getVariable 'missionRequestee'))", 3];
+_missionGiver addAction["<img image='\A3\ui_f\data\igui\cfg\simpleTasks\types\unknown_ca.paa'/> [SIDE MISSION] Random Task", {
+	[(_this select 0), (_this select 1)] remoteExec ["Bizo_fnc_missionSide", 2];
+}, nil, 1.5, true, true, "", "not(missionNamespace getVariable 'missionMenu') && not(missionNamespace getVariable 'missionAttack') && (_this == (missionNamespace getVariable 'missionRequestee'))", 3];
 
 _missionGiver addAction["<img image='\A3\ui_f\data\igui\cfg\simpleTasks\letters\X_ca.paa'/> [EXIT] Go back", {
 	[(_this select 1), "Nevermind..."] remoteExec ["sideChat", 0];

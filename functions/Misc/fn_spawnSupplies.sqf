@@ -68,28 +68,28 @@ else {
 	if(_side == west) then {
 		_spawnPos = getMarkerPos "respawn_west";
 
-		if(_type == 0) then {_supplyBox = "Box_NATO_AmmoVeh_F" createVehicle (_spawnPos); _supplyBox setVariable ["ACE_isRepairVehicle", true, true];};
+		if(_type == 0) then {_supplyBox = "Box_NATO_AmmoVeh_F" createVehicle (_spawnPos); _supplyBox setVariable ["ACE_isRepairVehicle", true, true];[_supplyBox, true, [0, 1, 0], 0] remoteExecCall ["ace_dragging_fnc_setDraggable", 2];};
 		if(_type == 1) then {_supplyBox = "Box_NATO_Ammo_F" createVehicle (_spawnPos);};
 		if(_type == 2) then {_supplyBox = "ACE_medicalSupplyCrate_advanced" createVehicle (_spawnPos);};
-		if(_type == 3) then {_supplyBox = "CargoNet_01_barrels_F" createVehicle (_spawnPos); [_supplyBox, 1000] remoteExecCall ["ace_refuel_fnc_makeSource", 2];};
+		if(_type == 3) then {_supplyBox = "CargoNet_01_barrels_F" createVehicle (_spawnPos); [_supplyBox, 1000] remoteExecCall ["ace_refuel_fnc_makeSource", 2]; [_supplyBox, true, [0, 1, 0], 0] remoteExecCall ["ace_dragging_fnc_setDraggable", 2];};
 	};
 
 	if(_side == east) then {
 		_spawnPos = getMarkerPos "respawn_east";
 
-		if(_type == 0) then {_supplyBox = "Box_NATO_AmmoVeh_F" createVehicle (_spawnPos); _supplyBox setVariable ["ACE_isRepairVehicle", true, true];};
+		if(_type == 0) then {_supplyBox = "Box_NATO_AmmoVeh_F" createVehicle (_spawnPos); _supplyBox setVariable ["ACE_isRepairVehicle", true, true];[_supplyBox, true, [0, 1, 0], 0] remoteExecCall ["ace_dragging_fnc_setDraggable", 2];};
 		if(_type == 1) then {_supplyBox = "Box_East_Ammo_F" createVehicle (_spawnPos);};
 		if(_type == 2) then {_supplyBox = "ACE_medicalSupplyCrate_advanced" createVehicle (_spawnPos);};
-		if(_type == 3) then {_supplyBox = "CargoNet_01_barrels_F" createVehicle (_spawnPos); [_supplyBox, 1000] remoteExecCall ["ace_refuel_fnc_makeSource", 2];};
+		if(_type == 3) then {_supplyBox = "CargoNet_01_barrels_F" createVehicle (_spawnPos); [_supplyBox, 1000] remoteExecCall ["ace_refuel_fnc_makeSource", 2]; [_supplyBox, true, [0, 1, 0], 0] remoteExecCall ["ace_dragging_fnc_setDraggable", 2];};
 	};
 
 	if(_side == resistance) then {
 		_spawnPos = getMarkerPos "respawn_guerrila";
 
-		if(_type == 0) then {_supplyBox = "Box_NATO_AmmoVeh_F" createVehicle (_spawnPos); _supplyBox setVariable ["ACE_isRepairVehicle", true, true];};
-		if(_type == 1) then {_supplyBox = "Box_IND_Ammo_F" createVehicle (_spawnPos);};
+		if(_type == 0) then {_supplyBox = "Box_NATO_AmmoVeh_F" createVehicle (_spawnPos); _supplyBox setVariable ["ACE_isRepairVehicle", true, true]; [_supplyBox, true, [0, 1, 0], 0] remoteExecCall ["ace_dragging_fnc_setDraggable", 2];};
+		if(_type == 1) then {_supplyBox = "Box_IND_Ammo_F" createVehicle (_spawnPos); };
 		if(_type == 2) then {_supplyBox = "ACE_medicalSupplyCrate_advanced" createVehicle (_spawnPos);};
-		if(_type == 3) then {_supplyBox = "CargoNet_01_barrels_F" createVehicle (_spawnPos); [_supplyBox, 1000] remoteExecCall ["ace_refuel_fnc_makeSource", 2];};
+		if(_type == 3) then {_supplyBox = "CargoNet_01_barrels_F" createVehicle (_spawnPos); [_supplyBox, 1000] remoteExecCall ["ace_refuel_fnc_makeSource", 2]; [_supplyBox, true, [0, 1, 0], 0] remoteExecCall ["ace_dragging_fnc_setDraggable", 2];};
 	};
 	
 	[_giver, "Okay, your supplies are waiting for you outside! [Near player spawn]"] remoteExec ["sideChat", 0];

@@ -46,16 +46,6 @@ _switch animateSource["SwitchLight", 1];
 _switch animateSource["Power_1", 1];
 _switch animateSource["Power_2", 1];
 
-/*_switch addAction["<img image='\A3\ui_f\data\igui\cfg\simpleTasks\types\interact_ca.paa'/> Disable the Radio Tower", {
-	(_this select 0) animateSource["SwitchPosition", 0];
-	(_this select 0) animateSource["SwitchLight", 0];
-	(_this select 0) animateSource["Power_1", 0];
-	(_this select 0) animateSource["Power_2", 0];
-	
-	missionNamespace setVariable ["RTDisabled", true, true];
-	
-	(_this select 0) removeAction (_this select 2);
-}, nil, 1.5, true, true, "", "(_this getVariable 'ACE_IsEngineer') > 0", 3];*/
 
 [_switch, ["<img image='\A3\ui_f\data\igui\cfg\simpleTasks\types\interact_ca.paa'/> Disable the Radio Tower", {
 	(_this select 0) animateSource["SwitchPosition", 0];

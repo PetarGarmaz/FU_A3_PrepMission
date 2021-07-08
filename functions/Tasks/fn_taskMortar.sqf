@@ -103,7 +103,7 @@ _fireMission = [_taskPos, _enemySide] spawn {
 
 	while {['mortarTask'] call BIS_fnc_taskState != 'SUCCEEDED'} do {
 		_nearPlayers = [];
-		{if (isPlayer _x) then {_nearPlayers pushBack _x;};} foreach (_taskPos nearEntities ["Man", 1000]);
+		{if (isPlayer _x) then {_nearPlayers pushBack _x;};} foreach (_taskPos nearEntities ["Man", 1500]);
 		
 		if(count _nearPlayers > 0) then {
 			_randomTarget = selectRandom _nearPlayers;

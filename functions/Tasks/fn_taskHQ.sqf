@@ -51,18 +51,6 @@ _flag = createVehicle [_flagType, _taskPos, [], 0, "CAN_COLLIDE"];
 
 missionNamespace setVariable ["HQFlag", _flag, true];
 
-/*_flag addAction["<img image='\A3\ui_f\data\igui\cfg\simpleTasks\types\interact_ca.paa'/> Capture the HQ", {
-	_nextFlagPos = getPos (_this select 0);
-	_flagType = "";
-	
-	deleteVehicle (_this select 0);
-	
-	if(side (_this select 1) == west) then {_flagType = "Flag_NATO_F"};
-	if(side (_this select 1) == east) then {_flagType = "Flag_CSAT_F"};
-	if(side (_this select 1) == resistance) then {_flagType = "Flag_AAF_F"};
-	
-	_flag = createVehicle [_flagType, _nextFlagPos, [], 0, "CAN_COLLIDE"];
-}, nil, 1.5, true, true, "", "true", 3];*/
 
 [_flag, ["<img image='\A3\ui_f\data\igui\cfg\simpleTasks\types\interact_ca.paa'/> Capture the HQ", {
 	_nextFlagPos = getPos (_this select 0);
